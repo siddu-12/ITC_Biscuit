@@ -106,7 +106,6 @@ if(flag==2):
 if(feedback=='YES'):
     add=np.concatenate((x_final,y_pred),axis=1)
     array_df = pd.DataFrame(add, columns=df.columns)
-    df = df.append(array_df, ignore_index=True)
 
 else:
     y_abc=float(st.number_input("Enter correct amt of ABC "))
@@ -118,4 +117,3 @@ else:
     y_final.append(y_correct)
     add=np.concatenate((x_final,y_final),axis=1)
     array_df = pd.DataFrame(add, columns=df.columns)
-    df = df.append(array_df, ignore_index=True)
