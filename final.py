@@ -26,7 +26,7 @@ country='INDIA'
 
 model_name = st.sidebar.selectbox(
     'Select classifier',
-    ('Polynomial Regression', 'Random Forest', 'XGBoost')
+    ('Random Forest', 'XGBoost')
 )
 
 df=pd.read_csv("ITC_inc_temp.csv")
@@ -56,13 +56,13 @@ x_test["Temperature"].append(temperature)
     
 x_final=pd.DataFrame(x_test)
 
-def polynomial_regression(x_final):
-    loaded_model1 = pickle.load(open('poly_regmodel.sav', 'rb'))
-    poly = PolynomialFeatures(degree=1)
-    x_final_poly = poly.fit_transform(x_final)
-    y_pred_poly= loaded_model1.predict(x_final_poly)
+# def polynomial_regression(x_final):
+#     loaded_model1 = pickle.load(open('poly_regmodel.sav', 'rb'))
+#     poly = PolynomialFeatures(degree=1)
+#     x_final_poly = poly.fit_transform(x_final)
+#     y_pred_poly= loaded_model1.predict(x_final_poly)
 
-    return y_pred_poly
+#     return y_pred_poly
 
 def RandomForest_Regressor(x_final):
     loaded_model2 = pickle.load(open('randfor_regmodel.sav', 'rb'))
@@ -78,10 +78,10 @@ def XGBoost_Regressor(x_final):
 
 y_pred=[[]]
 
-if(model_name=='Polynomial Regression'):
-    y_pred=polynomial_regression(x_final)
+# if(model_name=='Polynomial Regression'):
+#     y_pred=polynomial_regression(x_final)
 
-elif(model_name=='Random Forest'):
+if(model_name=='Random Forest'):
     y_pred=RandomForest_Regressor(x_final)
 
 else:
