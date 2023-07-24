@@ -5,7 +5,7 @@ import pickle
 from pathlib import Path
 
 from weatherbit.api import Api
-API_KEY="38c214d675514b5684b9e0be34e4e2e7"
+API_KEY="8ec2930ad509479ea3d531998163babc"
 
 from sklearn.preprocessing import PolynomialFeatures
 from PIL import Image
